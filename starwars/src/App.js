@@ -4,15 +4,15 @@ import axios from "axios";
 import Character from "./components/Character";
 
 function App() {
-  const [characters, setCharacters] = useState([0]);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://swapi.dev/api/people/1/")
+      .get("https://swapi.dev/api/people/")
 
       .then((res) => {
         console.log(res);
-        setCharacters(res.data);
+        setCharacters(res.data.results);
       })
 
       .catch((err) => {
